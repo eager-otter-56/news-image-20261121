@@ -40,6 +40,10 @@ def main():
             print("checksum mismatch: write did not survive intact", file=sys.stderr)
             return 1
         os.replace(tmp, out)
+        # mkstemp creates the temp file mode 0600 and os.replace keeps
+        # that mode; make the landed artifact world-readable so the
+        # scorer (a different uid) can read entry.png.
+        os.chmod(out, 0o644)
     except BaseException:
         try:
             os.unlink(tmp)

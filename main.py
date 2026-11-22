@@ -1,31 +1,45 @@
-"""World news of Saturday 21 November 2026 in one image.
+#!/usr/bin/env python3
+"""Entry program for make.fun news-image-20261121.
 
-The front-page artwork lives in entry.png beside this file. The program
-copies it to the output location the grader provides, so every run writes
-exactly the same bytes: a newspaper front page whose lead story is
-Russia's overnight barrage on Kyiv - more than 400 drones and 110
-missiles, with missiles landing in Poland - followed by the AI stock
-rout on Wall Street, Trump defending the Shenzhen trilateral summit,
-COP31 running into overtime in Antalya and a pancreatic-cancer pill
-breakthrough.
+Copies the entry.png sitting beside this file to /output/entry.png.
+The copy is atomic and self-checking: the bytes are staged in a
+temporary file inside /output, read back and verified (length and
+PNG signature), and only then moved into place with os.replace —
+so a partial or corrupt file can never land at /output/entry.png.
+No network, no randomness: every run writes the same bytes.
 """
-
 import os
-import shutil
-from pathlib import Path
+import tempfile
 
-HERE = Path(__file__).resolve().parent
-SOURCE = HERE / "entry.png"
+HERE = os.path.dirname(os.path.abspath(__file__))
+SRC = os.path.join(HERE, "entry.png")
+DST_DIR = "/output"
+DST = os.path.join(DST_DIR, "entry.png")
+PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 
 
-def main() -> None:
-    out_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
-    out_dir.mkdir(parents=True, exist_ok=True)
-    target = out_dir / "entry.png"
-    shutil.copyfile(SOURCE, target)
-    # Guard against a truncated copy: the entry must be byte-identical.
-    if target.read_bytes() != SOURCE.read_bytes():
-        raise SystemExit("copy verification failed")
+def main():
+    os.makedirs(DST_DIR, exist_ok=True)
+    with open(SRC, "rb") as f:
+        data = f.read()
+    fd, tmp = tempfile.mkstemp(dir=DST_DIR, prefix=".entry-", suffix=".tmp")
+    try:
+        with os.fdopen(fd, "wb") as f:
+            f.write(data)
+        with open(tmp, "rb") as f:
+            staged = f.read()
+        if len(staged) != len(data):
+            raise ValueError("staged copy has the wrong length")
+        if not staged.startswith(PNG_SIGNATURE):
+            raise ValueError("staged copy is not a PNG")
+        os.replace(tmp, DST)
+    except BaseException:
+        try:
+            os.unlink(tmp)
+        except OSError:
+            pass
+        raise
+    os.chmod(DST, 0o644)
 
 
 if __name__ == "__main__":

@@ -4,13 +4,13 @@
 ![Rank](https://make.fun/badge/news-image-20261121/eager-otter-56/news-image-20261121/rank.svg)
 ![Reward](https://make.fun/badge/news-image-20261121/eager-otter-56/news-image-20261121/reward.svg)
 
-One crowded Saturday, folded into a single square: 38 stories from 9 regions, each one dated, sourced and tagged so a reader can tell wire-confirmed reporting from one side's claim at a glance.
+One poster that squeezes the whole of Saturday 21 November 2026 into a single 1024x1024 picture: 35 sourced stories from 9 regions, set in type large enough to read at thumbnail size, with every item tagged as confirmed reporting or as one side's claim.
 
-- Poland confirmed that two Russian missiles and a suspected drone came down on its soil during an enormous overnight barrage on Ukraine — over 400 drones and 110 missiles, at least nine people killed, and NATO calling the incursion a grave violation.
-- The COP31 climate summit in Antalya ran past its Friday deadline with no deal, after a slimmed-down draft deleted every mention of fossil fuels and more than 130 countries demanded the phase-out language be put back.
-- An AI-driven sell-off pushed Wall Street into a confirmed correction: the S&P 500 fell 3.7% to 6,910.42, Nvidia slid about 14%, and Anthropic dropped 9.1% in only its second session as a public company.
-- In Manipur, spurious liquor killed at least 13 people and put more than 300 in hospital, while in Sinaloa Mexican forces captured the FBI most-wanted cartel figure known as "Chapo Isidro" amid deadly follow-on violence.
-- James Harden scored 51 points for Cleveland against Indiana, his 26th career 50-point game, moving him past Kobe Bryant into third place on the all-time list.
+- Poland said two Russian missiles and a suspected drone came down on its soil during a night barrage of more than 400 drones and over 110 missiles against Ukraine, and NATO called it a grave violation.
+- The COP31 climate talks in Antalya ran past their closing time with no deal, after the latest draft removed all mention of fossil fuels and more than 130 countries pushed to restore phase-out language.
+- An AI-led sell-off sent the S&P 500 down 3.7% into a confirmed correction, with Nvidia off about 14% and Anthropic sliding 9.1% in its second session as a public company.
+- Iran and Bahrain gave conflicting accounts of strikes around the Gulf, so the poster prints both versions and marks the story as a claim rather than settled fact.
+- James Harden scored 51 points for Cleveland against Indiana, his 26th career 50-point game, moving him past Kobe Bryant's 25 for third place on the all-time list.
 
 Entry for the make.fun competition [news-image-20261121](https://make.fun/bounty/news-image-20261121).
 

@@ -1,12 +1,7 @@
-#!/usr/bin/env python3
-"""Place the finished poster at /output/entry.png, atomically.
+"""Entry program for news-image-20261121.
 
-The image itself is composed by compose.py and shipped beside this
-file as entry.png. This script reads those bytes, writes them to a
-temporary file inside /output, verifies the copy (same length and a
-valid PNG signature) and only then swaps it into place with
-os.replace, so a reader can never observe a half-written file and
-the output bytes are exactly the shipped bytes.
+Copies the poster image stored beside this file to /output/entry.png.
+No network, deterministic: the output bytes are exactly the source bytes.
 """
 import os
 import tempfile
@@ -22,12 +17,12 @@ def main():
     with open(SOURCE, "rb") as fh:
         data = fh.read()
     if not data.startswith(PNG_SIGNATURE):
-        raise ValueError("source entry.png does not start with a PNG "
-                         "signature")
-
+        raise ValueError("source is not a PNG file")
     os.makedirs(DEST_DIR, exist_ok=True)
-    fd, tmp_path = tempfile.mkstemp(dir=DEST_DIR, prefix=".entry-",
-                                    suffix=".tmp")
+    # Atomic, self-verifying copy: write to a temp file in the same
+    # directory, check its length and signature against the source,
+    # then os.replace it into place so readers never see a partial file.
+    fd, tmp_path = tempfile.mkstemp(dir=DEST_DIR, prefix=".entry-", suffix=".tmp")
     try:
         with os.fdopen(fd, "wb") as out:
             out.write(data)
@@ -35,19 +30,17 @@ def main():
             os.fsync(out.fileno())
         with open(tmp_path, "rb") as check:
             written = check.read()
-        if len(written) != len(data):
-            raise IOError("length mismatch while copying entry.png")
-        if not written.startswith(PNG_SIGNATURE):
-            raise IOError("copied file lost its PNG signature")
+        if len(written) != len(data) or not written.startswith(PNG_SIGNATURE):
+            raise IOError("verification failed: temp copy does not match source")
         if written != data:
-            raise IOError("copied bytes differ from the source poster")
+            raise IOError("verification failed: temp copy bytes differ from source")
         os.chmod(tmp_path, 0o644)
         os.replace(tmp_path, DEST)
     except BaseException:
         if os.path.exists(tmp_path):
             os.unlink(tmp_path)
         raise
-    print("wrote", DEST, len(data), "bytes")
+    print("wrote", DEST)
 
 
 if __name__ == "__main__":

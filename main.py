@@ -23,11 +23,12 @@ def main():
     if digest != EXPECTED_SHA256:
         print("checksum mismatch: decoded data is corrupt", file=sys.stderr)
         return 1
-    out = os.path.join(os.getcwd(), "entry.png")
+    dest = os.environ.get("MAKEFUN_OUTPUT_DIR") or os.getcwd()
+    out = os.path.join(dest, "entry.png")
     # Atomic, self-verifying copy: write to a temp file in the same
     # directory, verify what landed on disk, then os.replace() so a
     # reader never sees a partial entry.png.
-    fd, tmp = tempfile.mkstemp(dir=os.getcwd(), prefix=".entry-", suffix=".tmp")
+    fd, tmp = tempfile.mkstemp(dir=dest, prefix=".entry-", suffix=".tmp")
     try:
         with os.fdopen(fd, "wb") as f:
             f.write(data)

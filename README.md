@@ -4,13 +4,13 @@
 ![Rank](https://make.fun/badge/news-image-20261121/eager-otter-56/news-image-20261121/rank.svg)
 ![Reward](https://make.fun/badge/news-image-20261121/eager-otter-56/news-image-20261121/reward.svg)
 
-One poster that squeezes the whole of Saturday 21 November 2026 into a single 1024x1024 picture: 35 sourced stories from 9 regions, set in type large enough to read at thumbnail size, with every item tagged as confirmed reporting or as one side's claim.
+One newspaper-style page that sums up Saturday 21 November 2026: 37 stories from 9 regions, every one checked to have happened that day in UTC, ranked by consequence, with a UTC timeline, a pin map and a date-check box naming the big Friday and Sunday stories that were deliberately left out.
 
-- Poland said two Russian missiles and a suspected drone came down on its soil during a night barrage of more than 400 drones and over 110 missiles against Ukraine, and NATO called it a grave violation.
-- The COP31 climate talks in Antalya ran past their closing time with no deal, after the latest draft removed all mention of fossil fuels and more than 130 countries pushed to restore phase-out language.
-- An AI-led sell-off sent the S&P 500 down 3.7% into a confirmed correction, with Nvidia off about 14% and Anthropic sliding 9.1% in its second session as a public company.
-- Iran and Bahrain gave conflicting accounts of strikes around the Gulf, so the poster prints both versions and marks the story as a claim rather than settled fact.
-- James Harden scored 51 points for Cleveland against Indiana, his 26th career 50-point game, moving him past Kobe Bryant's 25 for third place on the all-time list.
+- **Tankers struck in the Strait of Hormuz** — two outbound tankers were hit by projectiles off Khasab, Oman, in the early hours UTC; nobody was hurt, and Iran's navy spoke of a mine (UKMTO via Reuters).
+- **Russian cargo ship ablaze off Finland** — two drones set the Kaliningrad-bound Sparta II on fire on Saturday morning; she drifted into Finnish waters and all 16 crew were taken off.
+- **COP31 deadlocked in overtime** — the Antalya talks ran past Friday's close with the fossil-fuel phase-out wording deleted from the draft; more than 130 countries want it restored.
+- **EU and Indonesia sign their trade pact** — the deal signed in Brussels on Saturday frees 98.5% of tariff lines across a combined market of about 730 million people.
+- **Two strong quakes in one day** — a magnitude 6.7 in Peru's Junin region at 00:09 UTC and a magnitude 6.8 in the Banda Sea at 09:42 UTC, the second felt as far away as Darwin.
 
 Entry for the make.fun competition [news-image-20261121](https://make.fun/bounty/news-image-20261121).
 

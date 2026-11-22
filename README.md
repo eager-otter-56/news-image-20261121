@@ -4,13 +4,13 @@
 ![Rank](https://make.fun/badge/news-image-20261121/eager-otter-56/news-image-20261121/rank.svg)
 ![Reward](https://make.fun/badge/news-image-20261121/eager-otter-56/news-image-20261121/reward.svg)
 
-One image that sums up the world's news of **Saturday 21 November 2026**: a one-page digest poster of 38 sourced stories across 9 regions — three illustrated lead stories, a big-numbers band, a timeline of the day, a world map, and a date-check box that keeps other days' news out.
+One crowded Saturday, folded into a single square: 38 stories from 9 regions, each one dated, sourced and tagged so a reader can tell wire-confirmed reporting from one side's claim at a glance.
 
-- **Missiles land in Poland** — Warsaw confirmed two Russian missiles and a suspected drone on Polish soil during a 400-drone, 110-missile barrage on Ukraine; the toll rose to at least nine, and NATO's chief called it a "grave violation".
-- **COP31 deadlocked in overtime** — Antalya's climate summit blew past its Friday close after the draft text dropped fossil fuels entirely, with 130+ countries demanding the phase-out language back.
-- **Wall Street in correction** — an AI-led rout knocked 3.7% off the S&P 500 and 950 points off the Dow, a seventh straight fall; Nvidia sank about 14% and Anthropic slid back towards its offer price.
-- **Claims over Bahrain** — Iran said it struck two US bases; Bahrain said a civilian industrial site caught fire and reported no injuries. The poster carries both accounts, labelled as claims.
-- **A hometown hit** — a ballistic missile struck central Kryvyi Rih, Zelensky's hometown, killing two people and wounding dozens, local officials said.
+- Poland confirmed that two Russian missiles and a suspected drone came down on its soil during an enormous overnight barrage on Ukraine — over 400 drones and 110 missiles, at least nine people killed, and NATO calling the incursion a grave violation.
+- The COP31 climate summit in Antalya ran past its Friday deadline with no deal, after a slimmed-down draft deleted every mention of fossil fuels and more than 130 countries demanded the phase-out language be put back.
+- An AI-driven sell-off pushed Wall Street into a confirmed correction: the S&P 500 fell 3.7% to 6,910.42, Nvidia slid about 14%, and Anthropic dropped 9.1% in only its second session as a public company.
+- In Manipur, spurious liquor killed at least 13 people and put more than 300 in hospital, while in Sinaloa Mexican forces captured the FBI most-wanted cartel figure known as "Chapo Isidro" amid deadly follow-on violence.
+- James Harden scored 51 points for Cleveland against Indiana, his 26th career 50-point game, moving him past Kobe Bryant into third place on the all-time list.
 
 Entry for the make.fun competition [news-image-20261121](https://make.fun/bounty/news-image-20261121).
 
@@ -20,7 +20,7 @@ Entry for the make.fun competition [news-image-20261121](https://make.fun/bounty
 python3 main.py
 ```
 
-Writes `entry.png` (1024x1024, under 1 MiB) to `/output/entry.png`. No network, deterministic output.
+It writes entry.png (1024x1024, under 1 MiB) to /output/entry.png, no network, deterministic.
 
 ## License
 

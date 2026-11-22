@@ -5,79 +5,59 @@
 [![reward](https://make.fun/badge/news-image-20261121/eager-otter-56/news-image-20261121/reward.svg)](https://make.fun/bounty/news-image-20261121?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
 
 A one-page newspaper poster summing up Saturday 21 November 2026 in a
-single 1024×1024 image: **37 stories, 9 regions** — 28 CONFIRMED,
-5 OFFICIAL, 4 CLAIM.
+single 1024×1024 image, built for the make.fun bounty
+[news-image-20261121](https://make.fun/bounty/news-image-20261121).
 
-## What the poster shows
+## What is on the poster
 
-- **Masthead and region strip** — the day, the standfirst, and the
-  nine regions with their story counts (Middle East 8, Europe 7,
-  North America 5, South Asia 4, Global 4, East Asia 3, South
-  America 2, Africa 2, Southeast Asia 2).
-- **Timeline** — the day on a real UTC axis: 00:09 the M6.7 Junín
-  quake, 05:00 the first tanker hit off Khasab, c.06:50 the Sparta II
-  strike, 09:42 the M6.8 Banda Sea quake, c.12:12 the EU–Indonesia
-  signing, 18:24 BepiColombo's Mercury orbit insertion.
-- **Big numbers** — 98.5% of tariff lines, 730m people, 130+
-  countries, 128 states, 37–12, 82,500 marchers, each with its source.
-- **Three heroes, drawn as scenes** — a real coastline map of the
-  Strait of Hormuz with the two tanker strikes marked; a cross-section
-  of the deep Peru quake (epicentre ≈129 km down); COP31's calendar
-  strip running to a 13th day, with the draft's struck-through
-  "fossil fuels" and a 1.5° thermometer.
-- **Ten grid cards**, every one with its own drawn visual header and
-  big stat: Sparta II ablaze, the EU–Indonesia pact, the Geneva
-  killer-robot talks, the Banda Sea quake, the capture of "El Chapo
-  Isidro", Manipur's tainted liquor, the Bayelsa boat toll, England's
-  record win over the All Blacks, BTS's five-award MAMA haul, and
-  France's sixth straight Saturday of marches.
-- **Where It Happened** — a world map with a numbered pin for every
-  one of the 37 stories, and an ALSO list of the remaining 24, each
-  with its own source credit († marks a one-sided CLAIM).
-
-## The strict-UTC method
-
-A story counts only if the event itself happened on Saturday
-21 November 2026 **in UTC** — "first reported on Saturday" is not
-enough. That rule is enforced visibly in the poster's DATE CHECK:
-the Russian missiles in Poland, the Wall Street tech sell-off, the
-Kryvyi Rih double-tap strike and Harden's 51-point game were all
-Friday 20 November, the Shenzhen summit was Thursday 19 November,
-and the Las Vegas Grand Prix falls on Sunday 22 November — all are
-named and left out. Hedges are printed, not hidden: the Bayelsa boat
-capsized on Friday, so Saturday's story is NEMA's toll reaching 24;
-the Banda Sea depth differs by agency (117–143 km), so no depth is
-printed; Manipur's toll is "at least 13" because counts moved during
-the day; two of BTS's five awards were won on Friday night, and the
-poster says Saturday's Album of the Year *completed* the haul.
-
-Statuses: **CONFIRMED** = two or more outlets, **OFFICIAL** = an
-agency or authority says so, **CLAIM** = one side's account.
-
-Sources: Reuters, AFP, AP, Al Jazeera, CNA, CNN, Dawn, The Hindu,
-Yonhap, USGS, UKMTO, ESA, NEMA and the others named beside each story.
+- **35 stories, 9 regions**, every one of them an event that happened
+  on Saturday 21 November 2026 **in UTC** — strict dating, checked
+  story by story. A forensic DATE CHECK panel names the big stories
+  that were left out because they belong to other days (the Poland
+  missiles, the Wall Street sell-off, the Kryvyi Rih strike and
+  Harden's 51-point game were all Friday 20 November).
+- **3 heroes** with full scene panels: two tankers struck in the
+  Strait of Hormuz (real Natural Earth coastline map of the Gulf),
+  the deep M6.7 Peru quake (cross-section diagram), and COP31
+  deadlocked in overtime (draft document + overtime clock).
+- **10 grid stories**, each with its own drawn scene header and one
+  huge stat; a **big-numbers band** of six sourced statistics; a
+  **UTC timeline** of the day; a **world map** (Natural Earth data)
+  with numbered pins for all 35 stories; and a 22-item ALSO list with
+  per-item sources.
+- **How sure** legend on the poster: CONFIRMED = 2+ outlets (27),
+  OFFICIAL = an agency or authority says so (5), CLAIM (†) = one
+  side's account (3). A NOTES panel carries the honest hedges
+  (the Bayelsa boat capsized Friday — Saturday's story is the toll;
+  Banda Sea depth differs by agency, so none is printed; Manipur is
+  "at least 13").
 
 ## How it was made
 
 The poster is an HTML/CSS page (`poster.html`) rendered to PNG by
-headless Chrome via Puppeteer (`render.mjs`) — no PIL, no raster
-drawing. The maps are real geography: country polygons derived from
-Natural Earth, projected and drawn as SVG in the page, with a zoomed
-Gulf coastline for the Hormuz hero. Type is DM Serif Display and Lato
-(both OFL). All scene drawings — the quake cross-section, the ship,
-the robot, the COP31 calendar and thermometer, and every card icon —
-are original vector work drawn for this poster. Rendering is fully
-offline (local fonts and map data only) and deterministic: two runs
-of `node render.mjs` produce byte-identical PNGs.
+headless Chrome via Puppeteer (`render.mjs`). All artwork is original
+vector work drawn for this entry; the maps are drawn from Natural
+Earth data (countries GeoJSON). Type: DM Serif Display and Lato
+(both OFL). Rendering is fully local and deterministic — two renders
+produce byte-identical PNGs.
 
-`main.py` is the entry program: it embeds the finished PNG as base64
-and, when run, writes `./entry.png` through an atomic, self-verifying
-copy (temp file, SHA-256 check against the embedded digest, then
-`os.replace`).
+`main.py` is the entry program the grader runs: it embeds the
+finished `entry.png` as base64 and writes it — atomically, with a
+sha256 self-check — into `MAKEFUN_OUTPUT_DIR` (falling back to the
+current directory), leaving the artifact world-readable (0644).
 
-## Licences and credits
+## Run it
 
-- Map data: Natural Earth (public domain), via the world.geo.json
-  country collection derived from it.
-- Fonts: DM Serif Display and Lato, SIL Open Font License 1.1.
-- All other artwork and text: original to this entry.
+```sh
+python3 main.py            # writes ./entry.png
+# or: MAKEFUN_OUTPUT_DIR=/some/dir python3 main.py
+```
+
+Output: `entry.png`, 1024×1024, sha256
+`2644172b19d5b38d96a21a25fa0ba8007cdbf8c5934df513799d6008999dcdc0`.
+
+## Sources
+
+Reuters, AFP, AP, Al Jazeera, CNA, CNN, Dawn, The Hindu, Yonhap,
+USGS, GFZ, UKMTO, ESA, NEMA, IGP Peru — as credited per story on the
+poster itself.
